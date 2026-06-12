@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run My Build",
+            "type": "shell",
+            "command": "npm run build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Git Status Check",
+            "type": "shell",
+            "command": "git status",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Container Up",
+            "type": "shell",
+            "command": "docker compose up -d",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker Container Down",
+            "type": "shell",
+            "command": "docker compose down",
+            "problemMatcher": []
+        },
+        {
+            "label": "Remove Migration",
+            "type": "shell",
+            "command": "dotnet migrations remove -s API -p Infrastructure",
+            "problemMatcher": []
+        }
+    ]
+}

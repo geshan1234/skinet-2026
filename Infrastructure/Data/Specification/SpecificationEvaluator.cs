@@ -31,10 +31,15 @@ namespace Infrastructure.Data.Specification
                 query = query.Distinct();
             }
 
+            if (spec.IsPagingEnabled)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
+
             return query;
         }
 
-        public static IQueryable<TResult> GetQuery<TSpec, TResult>(IQueryable<T> query, 
+        public static IQueryable<TResult> GetQuery<TResult>(IQueryable<T> query, 
             ISpecification<T, TResult> spec)
         {
             if (spec.Criteria != null)
@@ -64,6 +69,10 @@ namespace Infrastructure.Data.Specification
                 selectQuery = selectQuery?.Distinct();
             }
 
+            if (spec.IsPagingEnabled)
+            {
+                selectQuery = selectQuery?.Skip(spec.Skip).Take(spec.Take);
+            }
             return selectQuery ?? query.Cast<TResult>();
         }
     }

@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Dtos\" />
+    <Folder Include="Errors\" />
     <Folder Include="RequestHelpers\" />
   </ItemGroup>
 

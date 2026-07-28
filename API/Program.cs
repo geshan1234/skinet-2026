@@ -1,3 +1,4 @@
+using API.Middlewares;
 using Core.Interfaces;
 using Core.Mapping;
 using Core.Specifications;
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -29,6 +31,9 @@ var app = builder.Build();
 //     app.UseSwaggerUI();
 // }
 
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
+    .WithOrigins("http://localhost:4200", "https://localhost:4200"));
 app.UseHttpsRedirection();
 
 // app.UseAuthorization();

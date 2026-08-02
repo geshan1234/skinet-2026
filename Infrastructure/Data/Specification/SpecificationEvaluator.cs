@@ -23,7 +23,7 @@ namespace Infrastructure.Data.Specification
 
             if (spec.OrderByDescending != null)
             {
-                query = query.OrderBy(spec.OrderByDescending);
+                query = query.OrderByDescending(spec.OrderByDescending);
             }
 
             if (spec.IsDistinct)
@@ -54,7 +54,7 @@ namespace Infrastructure.Data.Specification
 
             if (spec.OrderByDescending != null)
             {
-                query = query.OrderBy(spec.OrderByDescending);
+                query = query.OrderByDescending(spec.OrderByDescending);
             }
 
             var selectQuery = query as IQueryable<TResult>;

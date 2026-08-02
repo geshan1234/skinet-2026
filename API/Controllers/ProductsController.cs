@@ -22,7 +22,7 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseApiContr
         return await CreatePagedResult<Product>(repo, spec, specParams.PageIndex, specParams.PageSize);
     }
 
-    [HttpGet("types")]
+    [HttpGet("types")] // api/products/types
     public async Task<ActionResult<IReadOnlyList<string>>> GetTypes()
     {
         var spec = new TypeListSpecification();
@@ -30,7 +30,7 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseApiContr
         return Ok(types);
     }
 
-    [HttpGet("brands")]
+    [HttpGet("brands")] // api/products/brands
     public async Task<ActionResult<IReadOnlyList<string>>> GetBrands()
     {
         var spec = new BrandListSpecification();

@@ -8,13 +8,29 @@
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
 :root {
   @include mat.button-overrides((
-    filled-container-shape: 22px,
-    outlined-container-shape: 22px,
+    filled-container-shape: 7px,
+    outlined-container-shape: 7px,
   ));
 }
 
 .match-input-height {
   height: var(--mat-form-field-container-height) !important;
+}
+
+.snack-error {
+  @include mat.snack-bar-overrides((
+    button-color: white,
+    container-color: red,
+    supporting-text-color: white,
+  ));
+}
+
+.snack-success {
+  @include mat.snack-bar-overrides((
+    button-color: white,
+    container-color: green,
+    supporting-text-color: white,
+  ));
 }
 
 html {
